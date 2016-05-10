@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Citrus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0"/>
+	<link rel="icon" href="images/logo.png" type="image/png"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+	 <link rel="stylesheet" type="text/css" href="css/tipsy.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.impromptu.css"/> 
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400' rel='stylesheet' type='text/css'/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="js/html5.js"></script>
+	<script type="text/javascript" src="js/jquery-migrate-1.2.1.js"></script>
+	<script type="text/javascript" src="js/jquery-impromptu.4.0.min.js"></script>
+	<script type="text/javascript" src="js/easyXDM/easyXDM.min.js"></script>
+    <script type="text/javascript" src="js/easyXDM/json2.js"></script>
+	<script type="text/javascript" src="js/consumerLogin.js"></script>
+	<script type="text/javascript" src="js/cp_login_validation.js"></script>
+    <script type="text/javascript" src="js/cp_forgot_pwd.js"></script>
+	<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-33514461-1', 'auto');
+
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+    <header class="header main-container signin mt-30">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="top-header grid-full phn-mb-30">
+                    <div class="top-header-content">
+                        <div class="block-left">
+                            <a class="logo fl hide-text phn-ma mr-30" href="index.html"><h1>Citrus</h1></a>
+                            <a class="mob-menu" href="#">
+                                <span class="mob-menu-text">Menu</span>
+                                <i class="menu-icon icon-hamburger fa fa-bars"></i>
+                                <i class="menu-icon icon-close fa fa-times"></i>
+                            </a>
+                            <div class="clr"></div>
+                        </div>
+                       <ul class="nav-menu color-black ml-100 pt-20 phn-tab-ml-0 color-black phn-tab-pt-0">
+                            <li><a class="alpha" href="consumers.html">For Consumers</a></li>
+                            <li><a href="https://mob.citruspay.com/citrus-mob/">For Merchants</a></li>
+							<li class="fr phn-tab-fn"><a id="merchnt_login_tab" loginType="merchnt_login" class="sign-in-pop omega" href="https://mob.citruspay.com/citrus-mob/login/mobileSignInPage">Merchant Login</a></li>
+                            <li class="fr phn-tab-fn"><a id="consumer_login_tab" loginType="consumer_login" class="sign-in-pop omega" href="https://mob.citruspay.com/citrus-mob/login/mobileConsumerSignInPage">Consumer Login</a></li>
+                            <!-- <li class="fr phn-tab-fn"><a class="sign-in-pop omega" href="https://mob.citruspay.com/citrus-mob/login/mobileSignInPage">Log In</a></li> -->
+                        </ul>
+                        <!-- <div class="sign-in fr">
+                            <a class="sign-in-pop color-white" href="#">Sign In</a>
+                        </div> -->
+                        <div class="clr"></div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </header>
+
+  <div class="modal-overlay js-close-modal"></div>
+    <div class="modal-overlay-cube js-close-modal"></div> 
+
+<div class="modal modal-sign-in">
+    <a class="btn-close-signin js-close-modal"></a>
+    <div class="sign-in-form">
+        <form class="sign-in" name="loginForm" id="loginForm">
+            <h3 class="title switchTitle medium bold ta-c color-black">Log In</h3>
+
+            
+            <ul class="login-container ac-container" style="list-style-type: none;">
+                <li>
+                    <label class="width-grid-one ma block color-black bold mt-20 mb-5">Email</label>
+                    <input class="width-grid-one ma block input evnt_username" name="username" autocomplete="off" id="txt_username" title="Email Address" type="text">
+                    <div class="error-block"><span class="status"></span></div>
+                </li>
+                <li>
+                    <label class="width-grid-one ma block color-black bold mt-30 mb-5">Password</label>
+                    <input class="width-grid-one ma block input evnt_password" name="password" autocomplete="off" type="password" id="txt_password" title="Password">
+                    <div class="error-block"><span class="status"></span></div>
+                </li>
+            </ul>
+            
+            <div class="error-block" id="login-error" style="display: none"> </div>
+
+            <div id="login-spinner" class="spinner" style="display:none; text-align: center; line-height: 40px;position: absolute;width: 100%;margin: -14px 0 0 0;">
+                <span style="text-align: center; color: #f7941e; padding-left:17px; margin-bottom:20px">Please wait while we log you in.<img src="https://mob.citruspay.com/citrus-mob/assets/spinner-c7b3cbb3ec8249a7121b722cdd76b870.gif" alt="Spinner" /></span>
+                <br/>
+            </div>
+
+            <div class="width-grid-one ma mt-30">
+                <a class="forgot-pass color-grey fl btn-help" id="lnk-forgotpass">Forgot Password?</a>
+                <input  id="login_submit" name="loginsubmit" loginType="" class="submitbutton orange-button submit fr" type="button" value="Sign In" />
+                <div class="clr"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal modal-forgot-pass" id="noMailIdPopup">
+    <a class="btn-close-signin js-close-modal"></a>
+    <div class="forgot-pass-form ta-c">
+        <form class="forgot-pass-in form-horizontal" name="resetPasswordForm" id="resetPasswordForm" >
+            <h3 class="title medium bold color-black mb-30">Forgot your password?</h3>
+
+            <p>Enter the email address you used when you created your Citrus account.</p>
+            <p class="mb-30">We'll email you a link to a page where you can easily create a new password.</p>
+            <label class="width-grid-one ma ta-l block color-black bold mb-5">Email address</label>
+
+            <input class="width-grid-one ma block input" id="resetPasswordEmailId" name="resetPasswordEmailId" autofocus>
+
+            <div class="error-block" id="errorMsg">
+                <span class="status"></span>
+            </div>
+
+            <div id="submitDiv" class="ta-c mt-30">
+                <button id="forgot_submit" class="orange-button submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+	
+	 <div class="modal modal-forgot-pass-in">
+        <a class="btn-close-signin js-close-modal"></a>
+        <div class="forgot-pass-form ta-c">
+            <form class="forgot-pass-in" method="POST"> 
+                <h3 class="title medium bold color-black mb-30">Success!</h3>
+                <p>A password reset link has been sent to you if you have an account with Citrus Pay.</p>
+                <p class="mt-20 mb-20">In case you don't receive an email from us, please check your spam/junk/bulk mail folder. If you still don't have an email, check that the email address you have provided actually has a registered account with us.</p>
+				<p>If you do have an account and don't receive an email, write to us at <b>support@citruspay.com</b></p>
+                <div class="ta-c mt-30">
+                   <input class="orange-button" type="button" id="ok" value="OK" style="border:none;">
+                </div>
+            </form>
+        </div>
+    </div>
+	
+	 <div style="background:#000;border:1px solid #000;"  class="modal modal-cube-in">
+        <a class="btn-close-signin js-close-modal"></a>
+        <div class="forgot-pass-form ta-c">
+			<div class="fluid-width-video-wrapper">
+			<iframe id="fitvid-cube" src="https://www.youtube.com/watch?v=OVsB_tNmKKA" allowfullscreen></iframe>
+			</div>
+        </div>
+    </div>
+    
+    <div class="modal modal-sign-up">
+        <a class="btn-close-signin js-close-modal"></a>
+        <div class="sign-up-form">
+            <form class="sign-up"> 
+                <h3 class="title medium color-black ta-c">Sign Up for Citrus</h3>
+                <div class="title small ta-c">And experience the difference</div>
+                <div class="width-grid-one fl mr-60">
+                    <label class="block color-black bold mt-20 mb-5">First Name</label>
+                    <input class="block input" type="text">
+                    <label class="block color-black bold mt-20 mb-5">Last Name</label>
+                    <input class="block input" type="text">
+                    <label class="block color-black bold mt-20 mb-5">Email Address</label>
+                    <input class="block input" type="text">
+                    <label class="block color-black bold mt-20 mb-5">Mobile No.</label>
+                    <input class="block input" type="text">
+                </div>
+                <div class="width-grid-one fr">
+                    <label class="block color-black bold mt-20 mb-5">Password</label>
+                    <input class="block input" type="password">
+                    <label class="block color-black bold mt-20 mb-5">Confirm Password</label>
+                    <input class="block input" type="password">
+                    <label class="block color-black bold mt-20 mb-5">Preferred Payment Option</label>
+                    <select class="block input">
+                        <option>Select Payment Mode</option>
+                        <option>Net Banking</option>
+                        <option>Credit Card</option>
+                        <option>Debit Card</option>
+                    </select>
+                    <div class="sign-up-submit ta-c mt-30">
+                        <input class="orange-button submit" type="submit" value="Signup">
+                    </div>
+                </div>
+                <div class="clr"></div>
+            </form>
+        </div>
+    </div>
+
+    <section class="main-container index-page-2 mt-60 tab-mt-90 phn-mt-60">
+        <div class="container">
+            <div class="billboard-cube ta-c pt-60 pb-60 phn-pl-10 phn-pr-10" style="font-family: 'Open Sans', Arial, sans-serif;font-weight:300;">
+                <h3 class="mb-30">Never miss a bill again</h3>
+				<div class="grid-full cube-container">
+                <div class="inline-block phone-cube">
+					<div><img class="phone-cube-img" width="450" height="505" src="images/cube/phone_web.png" alt="iphone payment gateway"/></div>		
+				</div>
+				<div class="inline-block phone-cube block-2">
+					<div class="block-2-div1"><img class="cube_margin" width="292" height="127" src="images/cube/cube_web.png" alt="cube online payment"/></div><br/>
+					<div class="block-2-div3"><a class="cube_margin cube-in" style="text-decoration:none;cursor:pointer;"><img style="vertical-align:middle;margin-left:10px;" width="34" height="34" src="images/cube/round_button.png" alt="payment made easier"/><span style="vertical-align:middle;margin-left:10px;color:#596C2D;">Watch how it <span style="font-weight:400;">works</span></span></a>
+					</div>
+					<div class="block-2-div2 mt-30"><a href="http://app.appsflyer.com/id961089570?pid=Citrus_Website&c=Homepage" target="_blank"><img style="display:inline-block;" width="200" height="69" src="images/cube/appstore_cube.png" alt="cube bill payments itunes"/></a><a href="http://app.appsflyer.com/com.citruspay.cube?pid=Citrus_Website&c=Homepage" target="_blank"><img style="display:inline-block;" width="200" height="69" src="images/cube/googleplay_cube.png" alt="cube bill payments google"/></a>
+					</div>
+					</div>
+				</div>
+				</div>
+            </div>
+    </section>
+
+    <section class="main-container index-page mt-60 mb-60 tab-mt-90 phn-mt-60 ta-c">
+        <div id="index-anchor-container" class="container ta-c">
+            <a id="index-anchor-1" class="consumers grid-one-fourth-index-2 alpha phn-grid-full pl-20 pr-20 pt-30 pb-30 phn-mb-60" href="consumers.html#citrus_cash">
+                <p class="bold color-green caps mb-30">Citrus Cash</p>
+                <h3 class="mer-con-head color-white title-shadow mb-30">The quickest way to pay anyone, anywhere!</h3>
+            </a>
+            <a id="index-anchor-2" class="consumers grid-one-fourth-index-2 phn-grid-full pl-20 pr-20 pt-30 pb-30 phn-mb-60" href="consumers.html#turbo_checkout">
+                <p class="bold color-green caps mb-30">Citrus Checkout</p>
+                <h3 class="mer-con-head color-white title-shadow mb-30">Introducing the easiest way to pay on any device.</h3>
+            </a>
+            <a id="index-anchor-3" class="consumers grid-one-fourth-index-2 phn-grid-full pl-20 pr-20 pt-30 pb-30 phn-mb-60" href="DevelopersGuide/index.html#/mobileintegration">
+                <p class="bold color-green caps mb-30">Mobile SDK</p>
+                <h3 class="mer-con-head color-white title-shadow mb-30">Get the best native payment experience for your apps.</h3>
+            </a>
+            <a id="index-anchor-4" class="consumers grid-one-fourth-index-2 omega phn-grid-full pl-20 pr-20 pt-30 pb-30" href="https://mob.citruspay.com/citrus-mob/#simple_pricing">
+                <p class="bold color-green caps mb-30">Simple Pricing</p>
+                <h3 class="mer-con-head color-white title-shadow mb-30">Flat Transaction Rates<br/>1.99% + <i class="fa fa-rupee"></i>3.</h3>
+            </a>
+            <div class="clr"></div>
+        </div>
+    </section>
+    
+    <footer class="footer main-container">
+        <div class="container">
+            <div class="hr"></div>
+            <div class="footer-wrapper pt-40 pb-40">
+                <div class="grid-half alpha tab-grid-half phn-grid-full phn-mb-20">
+                    <div class="footer-menu menu-small">
+                        <ul>
+                            <li><a href="media-press.html">Media & Press</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="citruscash-offers.html">Offers</a></li>
+							<li><a href="citrus-privacypolicy.html">Privacy Policy</a></li>
+							<li><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid-half omega tab-grid-full phn-grid-full copyright">
+                   <div class="color-grey">&copy; Citrus Payment Solutions PTE 
+				   <span class="social-icon-span">
+					<a href="http://www.twitter.com/citruspay" target="_blank"><img class="social-icon" width="32" height="32" src="images/twitter.png" alt="Citruspay Twitter" /></a>
+					<a href="https://www.facebook.com/Citruspay" target="_blank"><img class="social-icon" width="36" height="36" src="images/facebook.png" alt="Citruspay Facebook" /></a>
+					<a href="http://plus.google.com/+Citruspay/" target="_blank"><img class="social-icon" width="34" height="34" src="images/google_plus.png" alt="Citruspay Google" /></a>
+					</span>
+					</div>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
