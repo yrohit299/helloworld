@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0"/>
+	<link rel="icon" href="images/logo.png" type="image/png" sizes="16x16" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.impromptu.css"/> 
+	<link rel="stylesheet" type="text/css" href="css/tipsy.css"/>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="js/jquery-migrate-1.2.1.js"></script>
+	<script type="text/javascript" src="js/jquery-impromptu.4.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tipsy.js"></script>
+	<script type="text/javascript" src="js/easyXDM/easyXDM.min.js"></script>
+    <script type="text/javascript" src="js/easyXDM/json2.js"></script>
+	<script type="text/javascript" src="js/cp_login_validation.js"></script>
+	<script type="text/javascript" src="js/consumerLogin.js"></script>
+    <script type="text/javascript" src="js/cp_forgot_pwd.js"></script>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-33514461-1', 'auto');
+
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+    <header class="about-page header main-container">
+        <div class="container">
+            <div class="header-wrapper pt-30 pb-250 tab-pb-120 phn-pb-60">
+                <div class="top-header grid-full mb-150 tab-mb-90 phn-mb-30">
+                    <div class="top-header-content">
+                        <div class="block-left">
+                            <a class="logo fl hide-text phn-ma mr-30" href="index.html"><h1>Citrus</h1></a>
+                            <a class="mob-menu" href="#">
+                                <span class="mob-menu-text">Menu</span>
+                                <i class="menu-icon icon-hamburger fa fa-bars"></i>
+                                <i class="menu-icon icon-close fa fa-times"></i>
+                            </a>
+                            <div class="clr"></div>
+                        </div>
+                        <ul class="nav-menu ml-100 pt-20 phn-tab-ml-0 phn-tab-pt-0">
+                            <li><a class="alpha" href="consumers.html">For Consumers</a></li>
+                            <li><a href="https://mob.citruspay.com/citrus-mob/">For Merchants</a></li>
+							<li class="fr phn-tab-fn"><a id="merchnt_login_tab" loginType="merchnt_login" class="sign-in-pop omega" href="https://mob.citruspay.com/citrus-mob/login/mobileSignInPage">Merchant Login</a></li>
+                            <li class="fr phn-tab-fn"><a id="consumer_login_tab" loginType="consumer_login" class="sign-in-pop omega" href="https://mob.citruspay.com/citrus-mob/login/mobileConsumerSignInPage">Consumer Login</a></li>
+                            <!-- <li class="fr phn-tab-fn"><a class="sign-in-pop omega" href="https://mob.citruspay.com/citrus-mob/login/mobileSignInPage">Log In</a></li> -->
+                        </ul>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+                <div class="grid-full alpha omega phn-tab-grid-full">
+                    <!-- <a class="logo ma hide-text" href="index.html"><h1>Citrus</h1></a> -->
+                    <div class="header-content ta-c mt-10 phn-tab-mt-30">
+                        <h2 class="title large bold color-white title-shadow mb-10">Historically known to revolutionize the world of online payments.</h2>
+                        <div class="header-tagline color-green pt-5">Citrus makes digital payments and online checkout processes simpler, faster, safer and easier for an 800 <span class="break hide-phn"></span>million strong electronically connected user base.</div>
+                    </div>
+                </div>
+                <div class="clr">
+            </div>
+        </div>
+		</div>
+    </header>
+
+    <div class="modal-overlay js-close-modal"></div>
+
+      <div class="modal modal-sign-in">
+    <a class="btn-close-signin js-close-modal"></a>
+    <div class="sign-in-form">
+        <form class="sign-in" name="loginForm" id="loginForm">
+            <h3 class="title switchTitle medium bold ta-c color-black">Log In</h3>
+
+            
+            <ul class="login-container ac-container" style="list-style-type: none;">
+                <li>
+                    <label class="width-grid-one ma block color-black bold mt-20 mb-5">Email</label>
+                    <input class="width-grid-one ma block input evnt_username" name="username" autocomplete="off" id="txt_username" title="Email Address" type="text">
+                    <div class="error-block"><span class="status"></span></div>
+                </li>
+                <li>
+                    <label class="width-grid-one ma block color-black bold mt-30 mb-5">Password</label>
+                    <input class="width-grid-one ma block input evnt_password" name="password" autocomplete="off" type="password" id="txt_password" title="Password">
+                    <div class="error-block"><span class="status"></span></div>
+                </li>
+            </ul>
+            
+            <div class="error-block" id="login-error" style="display: none"> </div>
+
+            <div id="login-spinner" class="spinner" style="display:none; text-align: center; line-height: 40px;position: absolute;width: 100%;margin: -14px 0 0 0;">
+                <span style="text-align: center; color: #f7941e; padding-left:17px; margin-bottom:20px">Please wait while we log you in.<img src="https://mob.citruspay.com/citrus-mob/assets/spinner-c7b3cbb3ec8249a7121b722cdd76b870.gif" alt="Spinner" /></span>
+                <br/>
+            </div>
+
+            <div class="width-grid-one ma mt-30">
+                <a class="forgot-pass color-grey fl btn-help" id="lnk-forgotpass">Forgot Password?</a>
+                <input  id="login_submit" name="loginsubmit" loginType="" class="submitbutton orange-button submit fr" type="button" value="Sign In" />
+                <div class="clr"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal modal-forgot-pass" id="noMailIdPopup">
+    <a class="btn-close-signin js-close-modal"></a>
+    <div class="forgot-pass-form ta-c">
+        <form class="forgot-pass-in form-horizontal" name="resetPasswordForm" id="resetPasswordForm" >
+            <h3 class="title medium bold color-black mb-30">Forgot your password?</h3>
+
+            <p>Enter the email address you used when you created your Citrus account.</p>
+            <p class="mb-30">We'll email you a link to a page where you can easily create a new password.</p>
+            <label class="width-grid-one ma ta-l block color-black bold mb-5">Email address</label>
+
+            <input class="width-grid-one ma block input" id="resetPasswordEmailId" name="resetPasswordEmailId" autofocus>
+
+            <div class="error-block" id="errorMsg">
+                <span class="status"></span>
+            </div>
+
+            <div id="submitDiv" class="ta-c mt-30">
+                <button id="forgot_submit" class="orange-button submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+	
+	 <div class="modal modal-forgot-pass-in">
+        <a class="btn-close-signin js-close-modal"></a>
+        <div class="forgot-pass-form ta-c">
+            <form class="forgot-pass-in" method="POST"> 
+                <h3 class="title medium bold color-black mb-30">Success!</h3>
+                <p>A password reset link has been sent to you if you have an account with Citrus Pay.</p>
+                <p class="mt-20 mb-20">In case you don't receive an email from us, please check your spam/junk/bulk mail folder. If you still don't have an email, check that the email address you have provided actually has a registered account with us.</p>
+				<p>If you do have an account and don't receive an email, write to us at <b>support@citruspay.com</b></p>
+                <div class="ta-c mt-30">
+                   <input class="orange-button" type="button" id="ok" value="OK" style="border:none;">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal modal-sign-up">
+        <a class="btn-close-signin js-close-modal"></a>
+        <div class="sign-up-form">
+            <form class="sign-up"> 
+                <h3 class="title medium color-black ta-c">Sign Up for Citrus</h3>
+                <div class="title small ta-c">And experience the difference</div>
+                <div class="width-grid-one fl mr-60">
+                    <label class="block color-black bold mt-20 mb-5">First Name</label>
+                    <input class="block input" type="text">
+                    <label class="block color-black bold mt-20 mb-5">Last Name</label>
+                    <input class="block input" type="text">
+                    <label class="block color-black bold mt-20 mb-5">Email Address</label>
+                    <input class="block input" type="text">
+                    <label class="block color-black bold mt-20 mb-5">Mobile No.</label>
+                    <input class="block input" type="text">
+                </div>
+                <div class="width-grid-one fr">
+                    <label class="block color-black bold mt-20 mb-5">Password</label>
+                    <input class="block input" type="password">
+                    <label class="block color-black bold mt-20 mb-5">Confirm Password</label>
+                    <input class="block input" type="password">
+                    <label class="block color-black bold mt-20 mb-5">Preferred Payment Option</label>
+                    <select class="block input">
+                        <option>Select Payment Mode</option>
+                        <option>Net Banking</option>
+                        <option>Credit Card</option>
+                        <option>Debit Card</option>
+                    </select>
+                    <div class="sign-up-submit ta-c mt-30">
+                        <input class="orange-button submit" type="submit" value="Signup">
+                    </div>
+                </div>
+                <div class="clr"></div>
+            </form>
+        </div>
+    </div>
+
+    <section class="main-container about-page pt-60 pb-60">
+        <div class="container">
+            <div class="timeline">
+                <h2 class="title large bold">Our Timeline</h2>
+                <div class="hr"></div>
+                <div>
+                    <div>
+                        <div class="fl timeline-left color-green">APR-11</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                            Company incorporated.Angel investment received.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div>
+                        <div class="fl timeline-left color-orange">AUG-11</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+							Citrus hires it's first employee.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div>
+                        <div class="fl timeline-left color-green">NOV-11</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                          First production transaction is fired.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div>
+                        <div class="fl timeline-left color-orange">JAN-12</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+                           USD $1.8 million is raised from Sequoia Capital.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div>
+                        <div class="fl timeline-left color-green">JAN-12</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                            First full month of operation clocks an amazing 278 transactions.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div>
+                        <div class="fl timeline-left color-orange">MAR-12</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+                            Industry leading merchant management console launches.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div>
+                        <div class="fl timeline-left color-green">JUL-12</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                            Citrus Checkout launches: Enhances consumer experience.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div>
+                        <div class="fl timeline-left color-orange">NOV-12</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+                            100k transactions processed in a month.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-green">JAN-13</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                           Success rate optimization suite launches: Delights merchants.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-orange">MAR-13</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+                            Citrus Plus PG launches: Improves success rates.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-green">JUL-13</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                            RBI license received for stored value payments using proprietary IP.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-orange">AUG-13</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+                            1 million transactions processed in the month.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-orange">OCT-13</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+							Industry leading reporting and analytics platform released for merchants.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-green">NOV-13</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                             2 million transactions processed in a month.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-orange">APR-14</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+                             In-app payments for iOS and Android go live.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-green">JUL-14</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                             4 million transactions processed in a month.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-orange">SEP-14</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+                             Citrus family grows beyond 100 employees.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-green">OCT-14</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                             New office opened in Pune.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-orange">NOV-14</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-orange"></div>
+                            </div>
+                             Citrus' consumer base grows to 10 million +.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+					   <div>
+                        <div class="fl timeline-left color-green">DEC-14</div>
+                        <div class="timeline-right">
+                            <div class="dot-wrapper">
+                                <div class="dot bg-green"></div>
+                            </div>
+                             1 billion dollar run-rate reached.
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-container about-page directors">
+        <div class="container">
+            <h2 class="title large bold">About Team Citrus</h2>
+            <div class="hr"></div>
+            <div class="pt-30 pb-60 phn-pt-30 phn-pb-60">
+				<div class="grid-full phn-grid-full phn-mb-60 ta-j">
+                Team Citrus consists of people with the passion and experience to change the world of consumer payments in India. We aim to create a company that puts the consumer and their needs in the centre of everything we do. Our collective backgrounds are from the worlds of technology, user experience, payments, and banking. We have worked across the world in companies like Apple, First Data, ICICI Bank, Cisco, and Yahoo.
+				</div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-container about-page team">
+        <div class="container">
+            <h2 class="title large bold">Our Investors</h2>
+            <div class="hr"></div>
+            <div class="pt-30 pb-60 phn-pt-30 phn-pb-60">
+                <div class="grid-full phn-grid-full phn-mb-60">
+                    <div class="team-head bold color-green pb-5">Sequoia Capital</div>              
+                    <p class="ta-j">History has witnessed Sequoia; one of the oldest and largest venture capital firms in the world. Sequoia has invested in the likes of Paypal, Stripe, Square, Google, WhatsApp, Micromax, Evernote and more. The support of such a successful, proven partner has only escalated our passion and determination.</p>
+                </div>
+                <div class="grid-full phn-grid-full phn-mb-60 mt-20">           
+                    <div class="team-head bold color-green pb-5">Beenos</div>
+                    <p class="ta-j">Beenos is a noteworthy Japanese investment giant with a strong foothold in emerging markets. Their wings spread across countries such as Indonesia, Singapore, Vietnam, Thailand, Turkey, India, Japan and the United States. They focus majority of their investments in the payments and marketplace domains.</p>
+                </div>
+                <div class="grid-full phn-grid-full phn-mb-60 mt-20">
+                    <div class="team-head bold color-green pb-5">E-Context Asia</div>
+                    <p class="ta-j">E-Context Asia is a leading provider of online payment services and e-Commerce solutions across Asia. Their network is spread across, Shanghai, Jakarta, Hong Kong and Tokyo. They provide services through 8 subsidiaries located in Japan, including VeriTrans and ECONTEXT; two major online payment service providers in Japan.</p>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer main-container">
+        <div class="container">
+            <div class="hr"></div>
+            <div class="footer-wrapper pt-40 pb-40">
+                <a href="index.html"><div class="footer-logo mb-20"></div></a>
+                <div class="footer-menu menu-large mb-10">
+                    <ul>
+                        <li><a href="consumers.html">For Consumers</a></li>
+                        <li><a href="https://mob.citruspay.com/citrus-mob/">For Merchants</a></li>
+                    </ul>
+                </div>
+                <div class="grid-half alpha tab-grid-half phn-grid-full phn-mb-20">
+                    <div class="footer-menu menu-small">
+                        <ul>
+                            <li><a href="media-press.html">Media &amp; Press</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="citruscash-offers.html">Offers</a></li>
+							<li><a href="citrus-privacypolicy.html">Privacy Policy</a></li>
+							<li><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid-half omega tab-grid-full phn-grid-full copyright">
+                   <div class="color-grey">&copy; Citrus Payment Solutions PTE 
+					 <span class="social-icon-span">
+					<a href="http://www.twitter.com/citruspay" target="_blank"><img class="social-icon" width="32" height="32" src="images/twitter.png" alt="Twitter" /></a>
+					<a href="https://www.facebook.com/Citruspay" target="_blank"><img class="social-icon" width="36" height="36" src="images/facebook.png" alt="Facebook" /></a>
+					<a href="http://plus.google.com/+Citruspay/" target="_blank"><img class="social-icon" width="34" height="34" src="images/google_plus.png" alt="Google+" /></a>
+					</span>
+					</div>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
